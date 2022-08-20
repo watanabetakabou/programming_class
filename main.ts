@@ -1,3 +1,12 @@
+input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        . . # . .
+        . # . # .
+        . # . # .
+        # # # # #
+        # . . . #
+        `)
+})
 function Shougatsu () {
     music.setVolume(255)
     music.playMelody("E E E E F F E F ", 250)
@@ -6,5 +15,23 @@ function Shougatsu () {
     music.rest(music.beat(BeatFraction.Whole))
 }
 basic.forever(function () {
-    Shougatsu()
+    images.createBigImage(`
+        . . # . . . . # . .
+        . . # # . . # # . .
+        . # # # # # # # # .
+        . # # . # # . # # .
+        . # # # # # # # # .
+        `).scrollImage(1, 200)
+})
+basic.forever(function () {
+    if (cuteBot.tracking(cuteBot.TrackingState.L_unline_R_line)) {
+        cuteBot.motors(17, -17)
+    } else if (cuteBot.tracking(cuteBot.TrackingState.L_line_R_unline)) {
+        cuteBot.motors(-17, 17)
+    } else if (cuteBot.tracking(cuteBot.TrackingState.L_R_line)) {
+        cuteBot.motors(17, 40)
+    } else {
+        cuteBot.motors(-15, 19)
+        basic.pause(100)
+    }
 })
