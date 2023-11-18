@@ -15,13 +15,8 @@ function Shougatsu () {
     music.rest(music.beat(BeatFraction.Whole))
 }
 basic.forever(function () {
-    images.createBigImage(`
-        . . # . . . . # . .
-        . . # # . . # # . .
-        . # # # # # # # # .
-        . # # . # # . # # .
-        . # # # # # # # # .
-        `).scrollImage(1, 200)
+    basic.showString("KOSEN HAKASEJUKU")
+    music.startMelody(music.builtInMelody(Melodies.Nyan), MelodyOptions.ForeverInBackground)
 })
 basic.forever(function () {
     if (cuteBot.tracking(cuteBot.TrackingState.L_unline_R_line)) {

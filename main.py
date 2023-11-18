@@ -1,11 +1,11 @@
 def on_button_pressed_a():
     basic.show_leds("""
         . . # . .
-                . # . # .
-                . # . # .
-                # # # # #
-                # . . . #
-    """)
+        . # . # .
+        . # . # .
+        # # # # #
+        # . . . #
+        """)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def Shougatsu():
@@ -14,17 +14,11 @@ def Shougatsu():
     music.play_melody("G G B B G G G G ", 250)
     music.play_melody("F F E F G G G G ", 125)
     music.rest(music.beat(BeatFraction.WHOLE))
-music.start_melody(music.built_in_melody(Melodies.NYAN),
-    MelodyOptions.FOREVER_IN_BACKGROUND)
 
 def on_forever():
-    images.create_big_image("""
-        . . # . . . . # . .
-                . . # # . . # # . .
-                . # # # # # # # # .
-                . # # # # # # # # .
-                . # # # # # # # # .
-    """).scroll_image(1, 200)
+    basic.show_string("KOSEN HAKASEJUKU")
+    music.start_melody(music.built_in_melody(Melodies.NYAN),
+        MelodyOptions.FOREVER_IN_BACKGROUND)
 basic.forever(on_forever)
 
 def on_forever2():
